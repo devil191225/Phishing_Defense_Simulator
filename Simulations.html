@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulations - PhishGuard Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+    <header class="bg-gray-900 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-400"><i class="fas fa-shield-alt mr-2"></i>PhishGuard Pro</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-20">
+        <h2 class="text-3xl font-bold mb-8 text-center">Simulations</h2>
+
+        <!-- Simulation Game -->
+        <div class="glass p-6 rounded-lg text-center cursor-pointer hover:shadow-lg transition duration-300">
+            <h3 class="text-xl font-semibold mb-4">Operation Firewall</h3>
+            <p>Join a covert cybersecurity agency to protect InnovateTech from cyber threats.</p>
+            <button onclick="window.location.href='Operation_Firewall.html'" 
+                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4">
+                Start Mission
+            </button>
+        </div>
+
+        <!-- Gamified Simulations Section -->
+        <section id="gamified-simulations" class="mt-12">
+            <h3 class="text-2xl font-bold mb-6 text-center">Gamified Simulations</h3>
+            <div class="glass p-6 rounded-lg text-center cursor-pointer hover:shadow-lg transition duration-300"
+                 onclick="window.location.href='operation-firewall.html'">
+                <h4 class="text-xl font-semibold mb-2">Operation Firewall</h4>
+                <p>Embark on a gamified journey to defend against cyber threats.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-center py-6">
+        <p>&copy; 2025 PhishGuard Pro. All rights reserved.</p>
+    </footer>
+</body>
+</html>

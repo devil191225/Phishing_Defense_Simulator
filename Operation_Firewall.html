@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation Firewall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://pplx-res.cloudinary.com/image/upload/v1739087761/user_uploads/FUJPxbQKLINxQAP/Untitled-design.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .glass {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+    <nav class="bg-gray-900 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-400"><i class="fas fa-shield-alt mr-2"></i>PhishGuard Pro</a>
+            <ul class="flex space-x-6">
+                <!-- Redirect to main.html -->
+                <li><a href="main.html" class="hover:text-blue-400 transition">Home</a></li>
+                <!-- Redirect to history section in main.html -->
+                <li><a href="main.html#history" class="hover:text-blue-400 transition">History</a></li>
+                <li><a href="#analytics" class="hover:text-blue-400 transition">Analytics</a></li>
+                <li><a href="#profile" class="hover:text-blue-400 transition">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-8 text-center">Operation Firewall</h1>
+
+        <!-- Mission Overview -->
+        <div id="mission-container" class="space-y-6">
+            <!-- Mission 1 -->
+            <div id="mission1" class="glass">
+                <h2 class="text-xl font-bold mb-4">Mission 1: The Onboarding</h2>
+                <p>Identify and report a phishing attempt in your welcome package.</p>
+                <button onclick="startMission(1)" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4">Start Mission</button>
+            </div>
+
+            <!-- Mission 2 -->
+            <div id="mission2" class="glass">
+                <h2 class="text-xl font-bold mb-4">Mission 2: The Insider Threat</h2>
+                <p>Uncover a spear-phishing attempt targeting an executive's assistant.</p>
+                <button onclick="startMission(2)" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4">Start Mission</button>
+            </div>
+
+            <!-- Mission 3 -->
+            <div id="mission3" class="glass">
+                <h2 class="text-xl font-bold mb-4">Mission 3: The Ransomware Crisis</h2>
+                <p>Mitigate a simulated ransomware attack on InnovateTech.</p>
+                <button onclick="startMission(3)" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4">Start Mission</button>
+            </div>
+
+            <!-- Final Mission -->
+            <div id="mission4" class="glass">
+                <h2 class="text-xl font-bold mb-4">Final Mission: Thwarting The Shadow Collective</h2>
+                <p>Prevent The Shadow Collective's master plan and save InnovateTech.</p>
+                <button onclick="startMission(4)" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4">Start Mission</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Redirection -->
+    <script>
+        function startMission(missionNumber) {
+            if (missionNumber === 1) {
+                window.location.href = "mission1.html"; // Redirect to Mission 1 page
+            } else if (missionNumber === 2) {
+                window.location.href = "mission2.html"; // Redirect to Mission 2 page
+            } else if (missionNumber === 3) {
+                window.location.href = "mission3.html"; // Redirect to Mission 3 page
+            } else if (missionNumber === 4) {
+                window.location.href = "final-mission.html"; // Redirect to Final Mission page
+            }
+        }
+    </script>
+</body>
+</html>

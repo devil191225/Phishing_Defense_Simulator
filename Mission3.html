@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 3 - The Ransomware Crisis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://pplx-res.cloudinary.com/image/upload/v1739087761/user_uploads/FUJPxbQKLINxQAP/Untitled-design.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .glass {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+        .menu-bar {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        .dropdown a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center relative">
+    <!-- Hamburger Menu -->
+    <div class="menu" onclick="toggleMenu()">
+        <div class="menu-bar"></div>
+        <div class="menu-bar"></div>
+        <div class="menu-bar"></div>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div id="dropdownMenu" class="dropdown">
+        <a href="Operation_Firewall.html">Back to Operation Firewall</a>
+        <a href="main.html">Go to Main Page</a>
+    </div>
+
+    <div class="container mx-auto px-4">
+        <!-- Overview Section -->
+        <div id="overview" class="glass mb-6">
+            <h1 class="text-3xl font-bold mb-4">Mission 3 - The Ransomware Crisis</h1>
+            <p>Mitigate a simulated ransomware attack on InnovateTech by guiding employees and isolating compromised systems.</p>
+        </div>
+
+        <!-- Tasks Section -->
+        <div id="tasks" class="glass mb-6 hidden">
+            <h2 class="text-xl font-bold mb-4">Tasks</h2>
+            <ol class="list-decimal pl-6 space-y-2">
+                <li>Guide employees through proper response procedures.</li>
+                <li>Identify and isolate compromised systems.</li>
+                <li>Avoid additional phishing traps set by attackers.</li>
+            </ol>
+        </div>
+
+        <!-- Interactive Task -->
+        <div id="interactive-task" class="glass mb-6 hidden">
+            <h2 class="text-xl font-bold mb-4">Interactive Task</h2>
+            <p>Identify which system is compromised based on employee reports.</p>
+
+            <!-- Simulated Systems -->
+            <div id="systemReports" class="space-y-4 mt-4">
+                <!-- Legitimate System -->
+                <button onclick="checkSystem(false)" class="block w-full bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg text-left">
+                    System A - No unusual activity detected
+                </button>
+
+                <!-- Compromised System -->
+                <button onclick="checkSystem(true)" class="block w-full bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg text-left">
+                    System B - High CPU usage and encrypted files detected
+                </button>
+
+                <!-- Legitimate System -->
+                <button onclick="checkSystem(false)" class="block w-full bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg text-left">
+                    System C - Normal operations
+                </button>
+            </div>
+
+            <!-- Result Message -->
+            <p id="resultMessage" class="mt-4 hidden text-lg font-semibold"></p>
+
+            <!-- Complete Mission Button -->
+            <button id="completeButton" onclick="completeMission()" disabled class="hidden bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4">Complete Mission</button>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons flex justify-between mt-6">
+            <button id="prevButton" onclick="navigate('prev')" disabled class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded">Previous</button>
+            <button id="nextButton" onclick="navigate('next')" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Next</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Menu and Navigation Logic -->
+    <script>
+        const sections = ['overview', 'tasks', 'interactive-task'];
+        let currentSectionIndex = 0;
+
+        function toggleMenu() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function navigate(direction) {
+            // Hide current section
+            document.getElementById(sections[currentSectionIndex]).classList.add('hidden');
+
+            // Update index based on direction
+            if (direction === 'next' && currentSectionIndex < sections.length - 1) {
+                currentSectionIndex++;
+            } else if (direction === 'prev' && currentSectionIndex > 0) {
+                currentSectionIndex--;
+            }
+
+            // Show new section
+            document.getElementById(sections[currentSectionIndex]).classList.remove('hidden');
+
+            // Enable/disable navigation buttons
+            document.getElementById('prevButton').disabled = currentSectionIndex === 0;
+            document.getElementById('nextButton').disabled = currentSectionIndex === sections.length - 1;
+        }
+
+        function checkSystem(isCompromised) {
+            const resultMessage = document.getElementById('resultMessage');
+            
+            if (isCompromised) {
+                resultMessage.textContent = "Correct! You identified the compromised system.";
+                resultMessage.className = "mt-4 text-green-400 text-lg font-semibold";
+                document.getElementById('completeButton').classList.remove('hidden');
+                document.getElementById('completeButton').removeAttribute('disabled');
+            } else {
+                resultMessage.textContent = "Incorrect. This system is not compromised.";
+                resultMessage.className = "mt-4 text-red-400 text-lg font-semibold";
+            }
+            
+            resultMessage.classList.remove('hidden');
+        }
+
+        function completeMission() {
+            window.location.href = "Operation_Firewall.html"; // Redirect back to Operation Firewall page
+        }
+    </script>
+</body>
+</html>
